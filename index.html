@@ -9,13 +9,15 @@
     <!-- Adicionando o "tradutor" (Babel) -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
-    <!-- DICIONÁRIO DE FERRAMENTAS (IMPORTMAP) - VERSÃO CORRIGIDA E CONSISTENTE -->
+    <!-- DICIONÁRIO DE FERRAMENTAS (IMPORTMAP) - VERSÃO CORRIGIDA -->
+    <!-- Esta versão usa APENAS o esm.sh, removendo o conflito que quebrava o React. -->
     <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@18.2.0",
     "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
     "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react/": "https://aistudiocdn.com/react@^19.2.0/"
   }
 }
@@ -23,24 +25,7 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900">
     <div id="root"></div>
-    <!-- O código de inicialização foi movido para cá. -->
-    <!-- Isso evita que o navegador tente carregar um arquivo .tsx diretamente, resolvendo o erro de MIME type. -->
-    <script type="text/babel" data-type="module">
-      import React from 'react';
-      import ReactDOM from 'react-dom/client';
-      import App from './App.tsx';
-
-      const rootElement = document.getElementById('root');
-      if (!rootElement) {
-        throw new Error("Could not find root element to mount to");
-      }
-
-      const root = ReactDOM.createRoot(rootElement);
-      root.render(
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-      );
-    </script>
+    <!-- Carrega o script principal e diz ao navegador para usar o tradutor Babel -->
+    <script type="text/babel" data-type="module" src="/index.tsx"></script>
 </body>
 </html>
