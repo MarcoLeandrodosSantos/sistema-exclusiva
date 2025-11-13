@@ -9,7 +9,7 @@
     <!-- Adicionando o "tradutor" (Babel) -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
-    <!-- DICIONÁRIO DE FERRAMENTAS (IMPORTMAP) - VERSÃO FINAL E CORRETA -->
+    <!-- DICIONÁRIO DE FERRAMENTAS (IMPORTMAP) - VERSÃO CORRIGIDA E CONSISTENTE -->
     <!-- Esta versão usa APENAS o esm.sh para TUDO, removendo o conflito. -->
     <script type="importmap">
 {
@@ -26,6 +26,6 @@
 <body class="bg-gray-100 dark:bg-gray-900">
     <div id="root"></div>
     <!-- Carrega o script principal e diz ao navegador para usar o tradutor Babel -->
-    <script type="text/babel" data-type="module" src="/index.tsx"></script>
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
 </body>
 </html>
