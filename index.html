@@ -11,42 +11,17 @@
 <script type="importmap">
 {
   "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/jsx-runtime": "https://aistudiocdn.com/react@^19.2.0/jsx-runtime"
   }
 }
 </script>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900">
     <div id="root"></div>
-    <!-- O "robô" inteligente que carrega e traduz o sistema -->
-    <script type="text/babel" data-type="module">
-        // Este código busca o arquivo principal da sua aplicação como texto
-        // e o executa, evitando o erro de MIME type.
-        async function loadApp() {
-            try {
-                const response = await fetch('./index.tsx');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const code = await response.text();
-                
-                // Cria um novo script para ser traduzido pelo Babel
-                const script = document.createElement('script');
-                script.setAttribute('type', 'text/babel');
-                script.setAttribute('data-type', 'module');
-                script.innerHTML = code;
-                document.body.appendChild(script);
-            } catch (e) {
-                console.error("Falha ao carregar a aplicação:", e);
-                const root = document.getElementById('root');
-                if(root) {
-                    root.innerHTML = '<div style="padding: 20px; text-align: center; font-family: sans-serif;"><h1>Ocorreu um erro ao carregar o sistema.</h1><p>Por favor, verifique o console para mais detalhes.</p></div>';
-                }
-            }
-        }
-        loadApp();
-    </script>
+    <!-- Carrega o script principal e diz ao navegador para usar o tradutor Babel -->
+    <script type="text/babel" data-type="module" src="/index.tsx"></script>
 </body>
 </html>

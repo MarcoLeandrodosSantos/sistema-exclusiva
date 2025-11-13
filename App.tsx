@@ -1,9 +1,9 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Customer, FilterType, initialAttendants } from './types';
-import CustomerForm from './components/CustomerForm';
-import CustomerList from './components/CustomerList';
-import SearchBar from './components/SearchBar';
-import Dashboard from './components/Dashboard';
+import { Customer, FilterType, initialAttendants } from './types.ts';
+import CustomerForm from './components/CustomerForm.tsx';
+import CustomerList from './components/CustomerList.tsx';
+import SearchBar from './components/SearchBar.tsx';
+import Dashboard from './components/Dashboard.tsx';
 
 const App: React.FC = () => {
   const [customers, setCustomers] = useState<Customer[]>(() => {
