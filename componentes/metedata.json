@@ -1,0 +1,4 @@
+{
+  "name": "Exclusiva Proteções - Cadastro de Clientes",
+  "description": "Um sistema para cadastrar e pesquisar clientes para a Exclusiva Proteções. Permite adicionar clientes com detalhes como nome, CPF e endereço, e filtrá-los por endereço ou condomínio."
+}
